@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 class Checker
 {
-    static int checkvitals=1;
+    static int checkvitals=0;
     static bool checkbpm(float bpm)
     {
        if(bpm < 70 || bpm > 150) {
@@ -30,12 +30,10 @@ class Checker
     
     static void vitalsAreOk(float bpm, float spo2, float respRate) {
         
-        if(checkresprate(resprate) && checkbpm(bpm) && checspo2(spo2))
+        if(checkresprate(resprate) && checkbpm(bpm) && checkspo2(spo2))
         {
             checkvitals=1;  
-        } 
-        checkvitals=0;
-       
+        }
     }
     /*static void ExpectTrue(bool expression) {
         if(!expression) {
