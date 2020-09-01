@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 class Checker
 {
-    static bool vitalsAreOk(float bpm, float spo2, float respRate) {
+    static int checkvitals=1;
+    static void vitalsAreOk(float bpm, float spo2, float respRate) {
+        
         if(bpm < 70 || bpm > 150 || spo2 < 90 || respRate < 30 || respRate > 95) {
-            Console.WriteLine("Not ok");
-            return false;
+            checkvitals=0;  
         } 
-        Console.WriteLine("All ok");
-        return true;
+       
     }
     /*static void ExpectTrue(bool expression) {
         if(!expression) {
@@ -27,6 +27,12 @@ class Checker
         //ExpectTrue(vitalsAreOk(100, 95, 60));
         //ExpectFalse(vitalsAreOk(40, 91, 92));
         vitalsAreOk(100,95,60);
+        if(checkvitals==1)
+        {
+            Console.WriteLine("All ok");
+            return 0;
+        }
+        Console.WriteLine("Not ok");
         return 0;  
     }
 }
