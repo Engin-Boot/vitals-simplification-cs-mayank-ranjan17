@@ -6,7 +6,8 @@ class Checker
     static int checkvitals=1;
     static void checkbpm(float bpm)
     {
-       if(bpm < 70 || bpm > 150) {
+       //correcting the max range for bpm given as 150 initially
+       if(bpm < 70 || bpm > 100) {
              checkvitals=0;
         } 
     }
@@ -20,18 +21,29 @@ class Checker
     
     static void checkresprate(float respRate)
     {
-       if(respRate < 30 || respRate > 95) {
+       //respiratory rate is 12 to 16 for a normal adult
+       if(respRate < 12 || respRate >16) {
             checkvitals=0;
         } 
         
     }
     
-    static void vitalsAreOk(float bpm, float spo2, float respRate) {
+    //new feature to check bp
+    static void checkbp(float bp)
+    {
+        if(bp < 80 || bp > 120)
+        {
+            checkvitals=0;
+        }
+    }
+    
+    static void vitalsAreOk(float bpm, float spo2, float respRate,float bp) {
         
         checkvitals=1;//condition for all ok case
         checkresprate(respRate);
         checkbpm(bpm);
         checkspo2(spo2);
+        checkbp(bp);
         
         
     }
@@ -50,7 +62,7 @@ class Checker
     static int Main() {
         //ExpectTrue(vitalsAreOk(100, 95, 60));
         //ExpectFalse(vitalsAreOk(40, 91, 92));
-        vitalsAreOk(100,95,60);
+        vitalsAreOk(100,95,60,80);
         if(checkvitals==1)
         {
             Console.WriteLine("All ok");
