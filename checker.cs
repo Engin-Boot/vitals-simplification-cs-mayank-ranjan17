@@ -5,8 +5,10 @@ class Checker
 {
     static bool vitalsAreOk(float bpm, float spo2, float respRate) {
         if(bpm < 70 || bpm > 150 || spo2 < 90 || respRate < 30 || respRate > 95) {
+            Console.WriteLine("Not ok");
             return false;
         } 
+        Console.WriteLine("All ok");
         return true;
     }
     /*static void ExpectTrue(bool expression) {
@@ -24,13 +26,9 @@ class Checker
     static int Main() {
         //ExpectTrue(vitalsAreOk(100, 95, 60));
         //ExpectFalse(vitalsAreOk(40, 91, 92));
-        if(vitalsAreOk(100,95,60))
-        {
-            Console.WriteLine("All ok");
-            return 0;
-        }
-        Console.WriteLine("Not ok");
-        return 0;
+        vitalsAreOk(100,95,60);
+        
+       
         
         
         
