@@ -9,7 +9,7 @@ class Checker
         } 
         return true;
     }
-    static void ExpectTrue(bool expression) {
+    /*static void ExpectTrue(bool expression) {
         if(!expression) {
             Console.WriteLine("Expected true, but got false");
             Environment.Exit(1);
@@ -20,11 +20,19 @@ class Checker
             Console.WriteLine("Expected false, but got true");
             Environment.Exit(1);
         }
-    }
+    }*/
     static int Main() {
-        ExpectTrue(vitalsAreOk(100, 95, 60));
-        ExpectFalse(vitalsAreOk(40, 91, 92));
-        Console.WriteLine("All ok");
+        //ExpectTrue(vitalsAreOk(100, 95, 60));
+        //ExpectFalse(vitalsAreOk(40, 91, 92));
+        if(vitalsAreOk(100,95,60))
+        {
+            Console.WriteLine("All ok");
+            return 0;
+        }
+        Console.WriteLine("Not ok");
         return 0;
+        
+        
+        
     }
 }
