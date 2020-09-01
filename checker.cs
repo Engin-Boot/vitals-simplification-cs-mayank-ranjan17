@@ -27,10 +27,6 @@ class Checker
         //ExpectTrue(vitalsAreOk(100, 95, 60));
         //ExpectFalse(vitalsAreOk(40, 91, 92));
         vitalsAreOk(100,95,60);
-        
-       
-        
-        
-        
+        return 0;  
     }
 }
