@@ -3,37 +3,37 @@ using System.Diagnostics;
 
 class Checker
 {
-    static int checkvitals=0;
+    static int checkvitals=1;
     static bool checkbpm(float bpm)
     {
        if(bpm < 70 || bpm > 150) {
-            return false;  
+             checkvitals=0;
         } 
-        return true;
     }
     
      static bool checkspo2(float spo2)
     {
        if(spo2 < 90) {
-            return false;  
+            checkvitals=0;  
         } 
-        return true;
     }
     
     static bool checkresprate(float respRate)
     {
        if(respRate < 30 || respRate > 95) {
-            return false;  
+            checkvitals=0;
         } 
-        return true;
+        
     }
     
     static void vitalsAreOk(float bpm, float spo2, float respRate) {
         
-        if(checkresprate(resprate) && checkbpm(bpm) && checkspo2(spo2))
-        {
-            checkvitals=1;  
-        }
+        checkvitals=1;//condition for all ok case
+        checkresprate(resprate);
+        checkbpm(bpm);
+        checkspo2(spo2);
+        
+        
     }
     /*static void ExpectTrue(bool expression) {
         if(!expression) {
