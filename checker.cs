@@ -4,21 +4,21 @@ using System.Diagnostics;
 class Checker
 {
     static int checkvitals=1;
-    static bool checkbpm(float bpm)
+    static void checkbpm(float bpm)
     {
        if(bpm < 70 || bpm > 150) {
              checkvitals=0;
         } 
     }
     
-     static bool checkspo2(float spo2)
+     static void checkspo2(float spo2)
     {
        if(spo2 < 90) {
             checkvitals=0;  
         } 
     }
     
-    static bool checkresprate(float respRate)
+    static void checkresprate(float respRate)
     {
        if(respRate < 30 || respRate > 95) {
             checkvitals=0;
@@ -29,7 +29,7 @@ class Checker
     static void vitalsAreOk(float bpm, float spo2, float respRate) {
         
         checkvitals=1;//condition for all ok case
-        checkresprate(resprate);
+        checkresprate(respRate);
         checkbpm(bpm);
         checkspo2(spo2);
         
