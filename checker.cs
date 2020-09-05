@@ -25,7 +25,7 @@ class Checker
         } 
        else if(spo2>100){
            Console.WriteLine("Not a valid range for SpO2");
-           checkvitals=0
+           checkvitals=0;
        }
     }
     
